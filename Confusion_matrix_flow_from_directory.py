@@ -5,6 +5,7 @@ from keras.layers.core import Dense, Dropout, Activation, Flatten
 from keras.layers.convolutional import Convolution2D, MaxPooling2D
 from keras.preprocessing.image import ImageDataGenerator
 from sklearn.metrics import classification_report, confusion_matrix
+import math
 
 # Start
 train_data_path = 'F://data//Train'
@@ -71,7 +72,7 @@ model.fit_generator(train_generator,
                     validation_steps=num_of_test_samples // batch_size)
 
 # Confution Matrix and Classification Report
-Y_pred = model.predict_generator(validation_generator, num_of_test_samples // batch_size)
+Y_pred = model.predict_generator(validation_generator, math.ceil(num_of_test_samples/batch_size))
 y_pred = np.argmax(Y_pred, axis=1)
 print('Confusion Matrix')
 print(confusion_matrix(validation_generator.classes, y_pred))
