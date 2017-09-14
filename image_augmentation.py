@@ -17,10 +17,7 @@ ite = 0
 count = 0
 
 
-while count <= 1448:
-    gap = 3
-    print(ite)
-    image = data_dir[count]
+for image in data_dir:
     print(image)
     img = load_img(path + '//' + image)
     x = img_to_array(img)
@@ -29,7 +26,5 @@ while count <= 1448:
     for batch in datagen.flow(x, batch_size=1, save_to_dir=target_path, save_prefix='Roots_',
                               save_format='jpeg'):
         i += 1
-        if i > 1:
+        if i > 10:
             break
-    count += 4
-    ite += 1
