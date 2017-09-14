@@ -1,7 +1,6 @@
 import os
 from keras.preprocessing.image import ImageDataGenerator, img_to_array, load_img
 
-
 path = 'F:\dpL\Defect_Least\Training\Roots'
 target_path = 'F:\dpL\Defect_Least\Training\Roots'
 
